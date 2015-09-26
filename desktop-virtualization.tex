@@ -16,8 +16,9 @@
 
 
 \address{Universidade do Vale do Rio dos Sinos
-  (UNISINOS)\\
-  93022-000 -- São Leopoldo -- RS -- Brazil
+    (UNISINOS)\\
+    Caixa Postal 275 - 93.022-000 - São Leopoldo - RS - Brazil
+    \email{cassioperin@yahoo.com.br, \{fuadfsuad, felipe.silvacunha\}@gmail.com}
 }
 
 \begin{document}
@@ -25,131 +26,232 @@
 \maketitle
 
 \begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
+This article aims to report clearly and objectively a study of desktop
+virtualization technology (in this Article called Desktop Virtualization),
+identifying its characteristics and attributes, making comparisons with other
+existing methods for this purpose and exemplifying experiments.
 \end{abstract}
 
 \begin{resumo}
-  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
-  resumos de artigos para publicação nos anais das conferências organizadas
-  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
-  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
-  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
-  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
-  página do artigo.
+Este artigo visa relatar de forma clara e objetiva um estudo
+envolvendo a tecnologia de virtualização de desktop (neste artigo chamada de
+Desktop Virtualization), identificando suas características e atributos, fazendo
+comparativos com outros métodos existentes para este propósito e
+exemplificando experimentos.
 \end{resumo}
 
 
-\section{General Information}
 
-All full papers and posters (short papers) submitted to some SBC conference,
-including any supporting documents, should be written in English or in
-Portuguese. The format paper should be A4 with single column, 3.5 cm for upper
-margin, 2.5 cm for bottom margin and 3.0 cm for lateral margins, without
-headers or footers. The main font must be Times, 12 point nominal size, with 6
-points of space before each paragraph. Page numbers must be suppressed.
+\section{Conceito de Virtualização}
+Virtualização na área da computação diz respeito a simular uma plataforma de hardware,
+sistema operacional, dispositivo de armazenamento ou recurso de rede. Basicamente
+virtualização é uma técnica em que são separados aplicações e sistema operacional dos
+componentes físicos de um computador, existem vários formas de se aplicar essa
+tecnologia além disso esse procedimento engloba vários benefícios principalmente em
+quesitos relacionados à segurança, manutenção, consumo de energia e baixo custo.
 
-Full papers must respect the page limits defined by the conference.
-Conferences that publish just abstracts ask for \textbf{one}-page texts.
+O termo surgiu em meados de 1960 e se propagou com mais força nas décadas
+subsequentes, uma das razões é que, na época em que os mainframes dominavam o
+cenário tecnológico e não haviam computadores pessoais, por exemplo, não existia a
+praticidade de "adquirir, instalar e usar um software" - este era acompanhado de
+bibliotecas e outros recursos que o tornavam quase que exclusivos ao o computador para
+o qual foi desenvolvimento originalmente. Desta forma, muitas vezes uma organização
+que implementava um novo sistema se via obrigada a adquirir um equipamento apenas
+para executá-lo, em vez de simplesmente aproveitar o maquinário existente, deixando
+toda a operação mais cara no final das contas. A virtualização conseguiu resolver este
+problema: pode-se aproveitar um computador já existente para executar dois ou mais
+sistemas distintos, já que cada um executa dentro de sua própria máquina virtual. Evita-
+se, assim, gastos com novos equipamentos e aproveita-se os possíveis recursos ociosos
+do computador.
 
-\section{First Page} \label{sec:firstpage}
-
-The first page must display the paper title, the name and address of the
-authors, the abstract in English and ``resumo'' in Portuguese (``resumos'' are
-required only for papers written in Portuguese). The title must be centered
-over the whole page, in 16 point boldface font and with 12 points of space
-before itself. Author names must be centered in 12 point font, bold, all of
-them disposed in the same line, separated by commas and with 12 points of
-space after the title. Addresses must be centered in 12 point font, also with
-12 points of space after the authors' names. E-mail addresses should be
-written using font Courier New, 10 point nominal size, with 6 points of space
-before and 6 points of space after.
-
-The abstract and ``resumo'' (if is the case) must be in 12 point Times font,
-indented 0.8cm on both sides. The word \textbf{Abstract} and \textbf{Resumo},
-should be written in boldface and must precede the text.
-
-\section{CD-ROMs and Printed Proceedings}
-
-In some conferences, the papers are published on CD-ROM while only the
-abstract is published in the printed Proceedings. In this case, authors are
-invited to prepare two final versions of the paper. One, complete, to be
-published on the CD and the other, containing only the first page, with
-abstract and ``resumo'' (for papers in Portuguese).
-
-\section{Sections and Paragraphs}
-
-Section titles must be in boldface, 13pt, flush left. There should be an extra
-12 pt of space before each title. Section numbering is optional. The first
-paragraph of each section should not be indented, while the first lines of
-subsequent paragraphs should be indented by 1.27 cm.
-
-\subsection{Subsections}
-
-The subsection titles must be in boldface, 12pt, flush left.
-
-\section{Figures and Captions}\label{sec:figs}
-
-
-Figure and table captions should be centered if less than one line
-(Figure~\ref{fig:exampleFig1}), otherwise justified and indented by 0.8cm on
-both margins, as shown in Figure~\ref{fig:exampleFig2}. The caption font must
-be Helvetica, 10 point, boldface, with 6 points of space before and after each
-caption.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.5\textwidth]{fig1.jpg}
-\caption{A typical figure}
-\label{fig:exampleFig1}
+Pode-se definir o conceito como soluções computacionais que permitem a
+execução de vários sistemas operacionais e seus respectivos softwares a partir de uma
+única máquina, seja ela um desktop convencional ou um potente servidor, na prática elas
+oferecem resultados como qualquer outro computador, mas existem apenas logicamente,
+não fisicamente.Cada máquina virtual se traduz em um ambiente computacional completo:
+praticamente todos os recursos de seu sistema operacional podem ser utilizados (Figura \ref{fig:figure1}), é possível conectá-las em rede, instalar aplicativos, armazenar arquivos, ou realizar
+qualquer outra ação que uma máquina convencional poderia proporcionar.
+\begin{figure}
+    \centering
+        \includegraphics[width=0.5\textwidth]{figure1}
+    \caption{Ideia conceitual de uma máquina virtual}
+    \label{fig:figure1}
+\end{figure}
+\section{Benefícios da Virtualização}
+Com a evolução e o desenvolvimento das técnicas de virtualização, vários benefícios e
+praticidades são destacados se comparados a utilização de computadores em forma
+tradicional o que gera inúmeras vantagens em diversos quesitos.
+\subsection{Melhor aproveitamento dos recursos existentes}
+Ao executar vários serviços em um servidor ou conjunto de máquinas, por exemplo,
+pode-se aproveitar a capacidade de processamento destes equipamentos o mais próximo
+possível de sua totalidade (Figura \ref{fig:figure2});
+\subsection{Redução na infraestrutura de máquinas}
+Com o melhor aproveitamento dos recursos já existentes, a necessidade de aquisição de
+novos equipamentos diminui, assim como os consequentes gastos com instalação, espaço
+físico, refrigeração, manutenção, limpeza, consumo de energia, entre outros. Oque
+impacta positivamente em data centers ou parques de máquinas, por exemplo;
+\subsection{Gerenciamento centralizado e implementação ágil}
+Dependendo da solução de virtualização utilizada, fica mais fácil monitorar os serviços
+em execução, já que o seu gerenciamento é feito de forma centralizada. E também avirtualização permite a implementação de forma rápida, uma vez que a infraestrutura já
+está instalada;
+\subsection{Diversidade de plataformas e ambiente de testes}
+Pode-se ter uma grande diversidade de plataformas e, assim, realizar testes de
+desempenho de determinada aplicação em cada uma delas, por exemplo; é possível
+avaliar um novo sistema ou uma atualização antes de efetivamente implementá-la,
+diminuindo significativamente os riscos inerentes a procedimentos do tipo;
+\subsection{Segurança e confiabilidade}
+Como cada máquina virtual funciona de maneira independente das outras, um problema
+que surgir em uma delas - como uma vulnerabilidade de segurança - não afetará as
+demais;
+\subsection{Migração e escalabilidade}
+Mudar o serviço de ambiente de virtualização é uma tarefa que pode ser feita
+rapidamente, assim como a ampliação da infraestrutura;
+\begin{figure}
+    \centering
+        \includegraphics[width=0.5\textwidth]{figure2}
+    \caption{Comparativo do uso de processamento entre serviços virtualizados em relação as máquinas tradicionais.}
+    \label{fig:figure2}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=.3\textwidth]{fig2.jpg}
-\caption{This figure is an example of a figure caption taking more than one
-  line and justified considering margins mentioned in Section~\ref{sec:figs}.}
-\label{fig:exampleFig2}
+\section{Funcionamento}
+Uma solução de virtualização é composta, essencialmente, por dois protagonistas: o
+hospedeiro (host) e o hóspede ou convidado (guest). Pode-se entender o hospedeiro
+como sendo o sistema operacional que é executado por uma máquina física. O hóspede,
+por sua vez, é o sistema virtualizado que deve ser executado pelo hospedeiro. A
+virtualização ocorre quando estes dois elementos existem.A forma como hospedeiro e hóspedes trabalham varia conforme a solução. Em um
+método bastante comum há a figura do VMM (Virtual Machine Monitor - Monitor de
+Máquina Virtual), que também pode ser chamado de hypervisor: trata-se de uma espécie
+de plataforma implementada no hospedeiro que recebe os sistemas a serem virtualizados,
+controlando os seus recursos e mantendo-os "invisíveis" em relação aos outros.
+
+Para que possa fazer o seu trabalho, o VMM tem um tratamento diferenciado: ele
+pode ser executado no "modo supervisor", enquanto que programas comuns
+(aplicativos) executam no "modo usuário".
+
+No "modo supervisor", o software pode requisitar instruções que lidam
+diretamente com certos recursos de hardware, como funcionalidades específicas do
+processador. No "modo usuário", estes recursos mais críticos não podem ser acessados
+diretamente, cabendo ao sistema operacional, que trabalha em "modo supervisor", fazer
+uma espécie de intermediação quando necessário. O VMM precisa ter acesso
+privilegiado porque cabe a ele alocar os recursos a serem utilizados por cada máquina
+virtual sob sua responsabilidade, assim como determinar a ordem pela qual cada
+solicitação destas será atendida. O hóspede é executado em "modo usuário", mas como a
+máquina virtual possui um sistema operacional, qualquer requisição de instrução mais
+crítica solicitada por este é "interceptada" pelo hypervisor, que se encarrega de fornecê-
+la (Figura \ref{fig:figure3}).
+\begin{figure}
+    \centering
+        \includegraphics[width=0.5\textwidth]{figure3}
+    \caption{Contextualização do hypervisor no sistema.}
+    \label{fig:figure3}
 \end{figure}
+A virtualização por meio de VMM é geralmente dividida em duas técnicas: a
+virtualização total (full virtualization) e a paravirtualização (paravirtualization). A
+adoção de um modo ou outro depende de análises e testes que possam determinar qual é
+mais vantajoso para determinado serviço.
+\subsection{Virtualização total}
+Na virtualização total, o sistema operacional do hóspede trabalha como se de fato
+houvesse uma máquina física inteiramente à sua disposição. Desta forma, o sistema não
+precisa sofrer nenhuma adaptação e trabalha como se não houvesse virtualização ali. O
+problema é que esta abordagem pode ter algumas limitações consideráveis. Uma delas é
+o risco de algumas solicitações do hóspede não serem atendidas da maneira esperada.
+Isso acontece, por exemplo, quando o hypervisor não consegue lidar com determinada
+instrução privilegiada ou quando um recurso de hardware não pode ser plenamente
+acessado por não haver drivers na virtualização capazes de garantir sua plena
+compatibilidade.
+\subsection{Paravirtualização}
+A paravirtualização surge como uma solução para problemas da virtualização total. Nela,
+o sistema operacional do hóspede executa em uma máquina virtual similar ao hardware
+físico, mas não equivalente. Como este método, o hóspede é modificado para recorrer ao
+hypervisor quando necessitar de qualquer instrução privilegiada e não diretamente ao
+processador. Assim, o VMM não precisa interceptar estas solicitações e testá-las (tarefa
+que causa perda de desempenho), como acontece na virtualização total. Além disso, a
+paravirtualização diminui expressivamente os problemas com compatibilidade de
+hardware porque o sistema operacional do hóspede acaba podendo utilizar drivers
+adequados - na virtualização total, os drives disponíveis são "genéricos", isto é, criados
+para suportar o máximo possível de dispositivos, mas sem considerar as particularidades
+de cada componente.
 
-In tables, try to avoid the use of colored or shaded backgrounds, and avoid
-thick, doubled, or unnecessary framing lines. When reporting empirical data,
-do not use more decimal digits than warranted by their precision and
-reproducibility. Table caption must be placed before the table (see Table 1)
-and the font used must also be Helvetica, 10 point, boldface, with 6 points of
-space before and after each caption.
+A principal desvantagem da paravirtualização é a necessidade de o sistema
+operacional ter que sofrer modificações para "saber" que está sendo virtualizado,
+podendo gerar custos com adaptação e atualização ou limitações referentes à migração
+para um novo conjunto de hardware, por exemplo.
+\section{Riscos e desvantagens}
+Assim como alguns benefícios e melhorias são apresentados quando se utiliza técnicas de
+virtualização, importantes riscos devem ser levados em conta e cuidados devem ser
+tomados antes de implementar estes recursos.
+\subsection{Sobrecarga}
+A quantidade de máquinas virtuais que um computador/servidor pode suportar não é
+ilimitado, razão pela qual é necessário encontrar um equilíbrio para evitar a sobrecarga,
+do contrário, o desempenho de todas as máquinas virtuais será afetado. Esta estrutura
+deve possuir recursos suficientes para aportar um determinado número de usuários
+conforme sua demanda.
+\subsection{Contingência}
+Em aplicações críticas, é importante ter uma máquina que possa atuar imediatamente no
+lugar da máquina principal (servidor), pois se este parar de funcionar, todos os sistemas
+virtualizados que estão sendo executados também serão interrompidos.4.3 Segurança
+Se houver uma vulnerabilidade de segurança no VMM, por exemplo, todas as máquinas
+virtuais também poderão ser afetadas pelo problema.
+\subsection{Desempenho e portabilidade}
+A virtualização pode não ter um bom desempenho em todas as aplicações, por isso é
+importante avaliar muito bem a solução antes de sua efetiva implementação. Bem como
+um sistema que faz uso de determinadas instruções de um processador por exemplo e
+que é migrado para um modelo virtual, pode apresentar problemas caso existam
+incompatibilidades com outro processador presente.
+\section{Virtualização de Desktops}
 
-\begin{table}[ht]
-\centering
-\caption{Variables to be considered on the evaluation of interaction
-  techniques}
-\label{tab:exTable1}
-\includegraphics[width=.7\textwidth]{table.jpg}
-\end{table}
-
-\section{Images}
-
-All images and illustrations should be in black-and-white, or gray tones,
-excepting for the papers that will be electronically available (on CD-ROMs,
-internet, etc.). The image resolution on paper should be about 600 dpi for
-black-and-white images, and 150-300 dpi for grayscale images.  Do not include
-images with excessive resolution, as they may take hours to print, without any
-visible difference in the result.
-
-\section{References}
-
-Bibliographic references must be unambiguous and uniform.  We recommend giving
-the author names references in brackets, e.g. \cite{knuth:84},
-\cite{boulic:91}, and \cite{smith:99}.
-
-The references must be listed using 12 point font size, with 6 points of space
-before each reference. The first line of each reference should not be
-indented, while the subsequent should be indented by 0.5 cm.
+\begin{figure}
+    \centering
+        \includegraphics[width=0.5\textwidth]{figure4}
+    \caption{}
+    \label{fig:figure4}
+\end{figure}
+\section{Soluções para Virtualização}
+Como a virtualização pode atender às mais distintas aplicações, há várias soluções do
+tipo no mercado, assim como diversas empresas especializadas no segmento.
+\subsection{VMware}
+A VMware é uma empresa norte-americana especializada em tecnologias para
+virtualização. Seus produtos são bastante conhecidos no mercado e atendem a aplicações
+dos mais variados segmentos. Uma solução bastante conhecida da empresa é o VMware
+Server, que é gratuito, mas tem a proposta de atender ao segmento de servidores de
+pequeno e médio porte. As soluções pagas da empresa, no entanto, são muito mais
+amplas em recursos, e podem atender desde servidores mais simples até grandes data
+centers.
+\subsection{Microsoft}
+A Microsoft também tem presença expressiva no mercado de virtualização,
+especialmente porque os seus softwares da categoria se integram facilmente aos seus
+sistemas operacionais. O destaque fica por conta do Hyper-V, uma solução de
+virtualização que é integrada à linha de sistemas operacionais para servidores da empresa
+(como o Windows Server 2012), embora também funcione em determinadas versões
+para uso doméstico ou em escritórios (como o Windows 8). Tendo como base o
+conceito de hypervisor, o Hyper-V consegue lidar com vários cenários de virtualização,
+inclusive aqueles de alto desempenho, podendo trabalhar, por ex emplo, com data centers
+virtuais. Entre os vários recursos do Hyper-V estão uma funcionalidade que permite
+passar máquinas virtuais de um servidor para outro (para que o primeiro seja reparado,
+por exemplo) e a capacidade de criar réplicas - é possível ter um número ilimitado de
+"cópias" de virtual machines para utilizá-las em testes ou cobrir imediatamente um
+serviço que ficou indisponível.
+\subsection{Xen}
+Xen é outro nome bastante forte quando o assunto é virtualização. Trata-se de uma
+solução baseada em VMM que teve seu desenvolvimento promovido pela Universidade
+de Cambridge, no Reino Unido. O projeto é compatível com várias plataformas e
+arquiteturas. Disponibilizado como software livre, o Xen é gratuito e o seu código-fonte
+pode ser acessado por qualquer pessoa. Por isso, seu uso é bastante difundido no meio
+acadêmico e por entusiastas de sistemas Linux, por exemplo. Em 2007, a XenSource,
+companhia que mantinha o projeto, foi comprada pela Citrix, outra grande empresa do
+segmento de virtualização. Assim, também é possível encontrar soluções pagas desta que
+levam o nome Xen.
+\subsection{VirtualBox}
+O VirtualBox é um projeto iniciado em 2007 por uma empresa alemã de nome Innotek,
+mas que hoje pertence à Oracle. Sua proposta é a de permitir ao usuário executar um
+sistema operacional dentro do outro sem enfrentar complexidade. Há versões do
+software para os principais sistemas operacionais do mercado, como Windows, OS X e
+distribuições Linux. A versão mais importante do VirtualBox tem código-fonte aberto e
+é gratuita, mas a Oracle disponibiliza edições para uso corporativo que exigem
+pagamento de licenças.
 
 \bibliographystyle{sbc}
 \bibliography{desktop-virtualization}
+\nocite{*}
 
 \end{document}
