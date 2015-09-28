@@ -10,15 +10,15 @@
 
 \sloppy
 
-\title{Desktop Virtualization}
+\title{Virtualização de Desktops}
 
 \author{Cássio Perin\inst{1}, Fuad Saud\inst{1}, Luiz Cunha\inst{1} }
 
 
 \address{Universidade do Vale do Rio dos Sinos
-    (UNISINOS)\\
-    Caixa Postal 275 - 93.022-000 - São Leopoldo - RS - Brazil
-    \email{cassioperin@yahoo.com.br, \{fuadfsuad, felipe.silvacunha\}@gmail.com}
+    (Unisinos)\\
+    Caixa Postal 275 - 93022-000 - São Leopoldo - RS - Brazil
+    \email{cassioperin@yahoo.com.br, \{fuadfsaud, felipe.silvacunha\}@gmail.com}
 }
 
 \begin{document}
@@ -26,29 +26,37 @@
 \maketitle
 
 \begin{abstract}
-This article aims to report clearly and objectively a study of desktop
-virtualization technology (in this Article called Desktop Virtualization),
-identifying its characteristics and attributes, making comparisons with other
-existing methods for this purpose and exemplifying experiments.
+  The goal of this paper is to introduce the concept of Desktop Virtualization
+  and related techniques, as well as discussing current implementations of these
+  concepts and preseting comparisons between them as apropriate.
 \end{abstract}
 
 \begin{resumo}
-Este artigo visa relatar de forma clara e objetiva um estudo
-envolvendo a tecnologia de virtualização de desktop (neste artigo chamada de
-Desktop Virtualization), identificando suas características e atributos, fazendo
-comparativos com outros métodos existentes para este propósito e
-exemplificando experimentos.
+  O objetivo deste artigo é introduzir o conceito de virtualização
+  de Desktops e técnicas relacionadas, assim como discutir as implementações
+  atuais desses conceitos e apresentar comparações entre elas onde for
+  apropriado.
 \end{resumo}
 
+\section{Conceituação}
 
+Virtualização no contexto de computação, de uma maneira geral, refere-se a
+substituição de componentes computacionais reais (como peças de hadware,
+dispositivos de armazenamento), por componentes virtuais. De uma maneira mais
+estrita - e mais específica para o tipo de virtualização sobre o qual esse
+artigo discorre -, podemos conteituar o termo por tornar virtual o hardware
+utilizado por um determinado sistema para que ele possa ser executado,
+desacoplando a comunicação este sistema com os componentes físicos de um
+computador.
 
-\section{Conceito de Virtualização}
-Virtualização na área da computação diz respeito a simular uma plataforma de hardware,
-sistema operacional, dispositivo de armazenamento ou recurso de rede. Basicamente
-virtualização é uma técnica em que são separados aplicações e sistema operacional dos
-componentes físicos de um computador, existem vários formas de se aplicar essa
-tecnologia além disso esse procedimento engloba vários benefícios principalmente em
-quesitos relacionados à segurança, manutenção, consumo de energia e baixo custo.
+A virtualização de desktops é apenas um dos casos de uso para virtualização
+computacional. Consiste em separar o conceito do ambiente de desktop e suas
+aplicações, geralmente apresentadas por meio de uma interface gráfica e
+organizadas em forma de janelas. Há uma série de benefícios inerentes a esse
+desacoplamento, como por exemplo a diminuição do tempo ocioso dos componentes
+físicos, significando um melhor aproveitamento destes e economia de recursos.
+maior tolerância a falhas de componentes físicos, dado que 
+
 
 O termo surgiu em meados de 1960 e se propagou com mais força nas décadas
 subsequentes, uma das razões é que, na época em que os mainframes dominavam o
@@ -72,10 +80,10 @@ não fisicamente.Cada máquina virtual se traduz em um ambiente computacional comp
 praticamente todos os recursos de seu sistema operacional podem ser utilizados (Figura \ref{fig:figure1}), é possível conectá-las em rede, instalar aplicativos, armazenar arquivos, ou realizar
 qualquer outra ação que uma máquina convencional poderia proporcionar.
 \begin{figure}
-    \centering
-        \includegraphics[width=0.5\textwidth]{figure1}
-    \caption{Ideia conceitual de uma máquina virtual}
-    \label{fig:figure1}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figure1}
+  \caption{Ideia conceitual de uma máquina virtual}
+  \label{fig:figure1}
 \end{figure}
 \section{Benefícios da Virtualização}
 Com a evolução e o desenvolvimento das técnicas de virtualização, vários benefícios e
@@ -103,14 +111,15 @@ diminuindo significativamente os riscos inerentes a procedimentos do tipo;
 Como cada máquina virtual funciona de maneira independente das outras, um problema
 que surgir em uma delas - como uma vulnerabilidade de segurança - não afetará as
 demais;
+
 \subsection{Migração e escalabilidade}
 Mudar o serviço de ambiente de virtualização é uma tarefa que pode ser feita
 rapidamente, assim como a ampliação da infraestrutura;
 \begin{figure}
-    \centering
-        \includegraphics[width=0.5\textwidth]{figure2}
-    \caption{Comparativo do uso de processamento entre serviços virtualizados em relação as máquinas tradicionais.}
-    \label{fig:figure2}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figure2}
+  \caption{Comparativo do uso de processamento entre serviços virtualizados em relação as máquinas tradicionais.}
+  \label{fig:figure2}
 \end{figure}
 
 \section{Funcionamento}
@@ -140,15 +149,16 @@ máquina virtual possui um sistema operacional, qualquer requisição de instrução 
 crítica solicitada por este é "interceptada" pelo hypervisor, que se encarrega de fornecê-
 la (Figura \ref{fig:figure3}).
 \begin{figure}
-    \centering
-        \includegraphics[width=0.5\textwidth]{figure3}
-    \caption{Contextualização do hypervisor no sistema.}
-    \label{fig:figure3}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figure3}
+  \caption{Contextualização do hypervisor no sistema.}
+  \label{fig:figure3}
 \end{figure}
 A virtualização por meio de VMM é geralmente dividida em duas técnicas: a
 virtualização total (full virtualization) e a paravirtualização (paravirtualization). A
 adoção de um modo ou outro depende de análises e testes que possam determinar qual é
 mais vantajoso para determinado serviço.
+
 \subsection{Virtualização total}
 Na virtualização total, o sistema operacional do hóspede trabalha como se de fato
 houvesse uma máquina física inteiramente à sua disposição. Desta forma, o sistema não
@@ -159,6 +169,7 @@ Isso acontece, por exemplo, quando o hypervisor não consegue lidar com determina
 instrução privilegiada ou quando um recurso de hardware não pode ser plenamente
 acessado por não haver drivers na virtualização capazes de garantir sua plena
 compatibilidade.
+
 \subsection{Paravirtualização}
 A paravirtualização surge como uma solução para problemas da virtualização total. Nela,
 o sistema operacional do hóspede executa em uma máquina virtual similar ao hardware
@@ -176,39 +187,46 @@ A principal desvantagem da paravirtualização é a necessidade de o sistema
 operacional ter que sofrer modificações para "saber" que está sendo virtualizado,
 podendo gerar custos com adaptação e atualização ou limitações referentes à migração
 para um novo conjunto de hardware, por exemplo.
+
 \section{Riscos e desvantagens}
 Assim como alguns benefícios e melhorias são apresentados quando se utiliza técnicas de
 virtualização, importantes riscos devem ser levados em conta e cuidados devem ser
 tomados antes de implementar estes recursos.
+
 \subsection{Sobrecarga}
 A quantidade de máquinas virtuais que um computador/servidor pode suportar não é
 ilimitado, razão pela qual é necessário encontrar um equilíbrio para evitar a sobrecarga,
 do contrário, o desempenho de todas as máquinas virtuais será afetado. Esta estrutura
 deve possuir recursos suficientes para aportar um determinado número de usuários
 conforme sua demanda.
+
 \subsection{Contingência}
 Em aplicações críticas, é importante ter uma máquina que possa atuar imediatamente no
 lugar da máquina principal (servidor), pois se este parar de funcionar, todos os sistemas
 virtualizados que estão sendo executados também serão interrompidos.4.3 Segurança
 Se houver uma vulnerabilidade de segurança no VMM, por exemplo, todas as máquinas
 virtuais também poderão ser afetadas pelo problema.
+
 \subsection{Desempenho e portabilidade}
 A virtualização pode não ter um bom desempenho em todas as aplicações, por isso é
 importante avaliar muito bem a solução antes de sua efetiva implementação. Bem como
 um sistema que faz uso de determinadas instruções de um processador por exemplo e
 que é migrado para um modelo virtual, pode apresentar problemas caso existam
 incompatibilidades com outro processador presente.
+o
 \section{Virtualização de Desktops}
 
 \begin{figure}
-    \centering
-        \includegraphics[width=0.5\textwidth]{figure4}
-    \caption{}
-    \label{fig:figure4}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figure4}
+  \caption{}
+  \label{fig:figure4}
 \end{figure}
+
 \section{Soluções para Virtualização}
 Como a virtualização pode atender às mais distintas aplicações, há várias soluções do
 tipo no mercado, assim como diversas empresas especializadas no segmento.
+
 \subsection{VMware}
 A VMware é uma empresa norte-americana especializada em tecnologias para
 virtualização. Seus produtos são bastante conhecidos no mercado e atendem a aplicações
@@ -217,6 +235,7 @@ Server, que é gratuito, mas tem a proposta de atender ao segmento de servidores 
 pequeno e médio porte. As soluções pagas da empresa, no entanto, são muito mais
 amplas em recursos, e podem atender desde servidores mais simples até grandes data
 centers.
+
 \subsection{Microsoft}
 A Microsoft também tem presença expressiva no mercado de virtualização,
 especialmente porque os seus softwares da categoria se integram facilmente aos seus
@@ -231,6 +250,7 @@ passar máquinas virtuais de um servidor para outro (para que o primeiro seja rep
 por exemplo) e a capacidade de criar réplicas - é possível ter um número ilimitado de
 "cópias" de virtual machines para utilizá-las em testes ou cobrir imediatamente um
 serviço que ficou indisponível.
+
 \subsection{Xen}
 Xen é outro nome bastante forte quando o assunto é virtualização. Trata-se de uma
 solução baseada em VMM que teve seu desenvolvimento promovido pela Universidade
@@ -241,7 +261,8 @@ acadêmico e por entusiastas de sistemas Linux, por exemplo. Em 2007, a XenSource
 companhia que mantinha o projeto, foi comprada pela Citrix, outra grande empresa do
 segmento de virtualização. Assim, também é possível encontrar soluções pagas desta que
 levam o nome Xen.
-\subsection{VirtualBox}
+
+\subsection{Oracle VM VirtualBox}
 O VirtualBox é um projeto iniciado em 2007 por uma empresa alemã de nome Innotek,
 mas que hoje pertence à Oracle. Sua proposta é a de permitir ao usuário executar um
 sistema operacional dentro do outro sem enfrentar complexidade. Há versões do
