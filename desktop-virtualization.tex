@@ -56,6 +56,24 @@ organizadas em forma de janelas. Há uma série de benefícios inerentes a esse
 desacoplamento, como por exemplo a diminuição do tempo ocioso dos componentes
 físicos, significando um melhor aproveitamento destes e economia de recursos.
 maior tolerância a falhas de componentes físicos, dado que
+<<<<<<< Updated upstream
+=======
+
+
+O termo surgiu em meados de 1960 e se propagou com mais força nas décadas
+subsequentes, uma das razões é que, na época em que os mainframes dominavam o
+cenário tecnológico e não haviam computadores pessoais, por exemplo, não existia a
+praticidade de "adquirir, instalar e usar um software" - este era acompanhado de
+bibliotecas e outros recursos que o tornavam quase que exclusivos ao o computador para
+o qual foi desenvolvimento originalmente. Desta forma, muitas vezes uma organização
+que implementava um novo sistema se via obrigada a adquirir um equipamento apenas
+para executá-lo, em vez de simplesmente aproveitar o maquinário existente, deixando
+toda a operação mais cara no final das contas. A virtualização conseguiu resolver este
+problema: pode-se aproveitar um computador já existente para executar dois ou mais
+sistemas distintos, já que cada um executa dentro de sua própria máquina virtual. Evita-
+se, assim, gastos com novos equipamentos e aproveita-se os possíveis recursos ociosos
+do computador.
+>>>>>>> Stashed changes
 
 Pode-se definir o conceito como soluções computacionais que permitem a
 execução de vários sistemas operacionais e seus respectivos softwares a partir de uma
@@ -257,6 +275,23 @@ software para os principais sistemas operacionais do mercado, como Windows, OS X
 distribuições Linux. A versão mais importante do VirtualBox tem código-fonte aberto e
 é gratuita, mas a Oracle disponibiliza edições para uso corporativo que exigem
 pagamento de licenças.
+
+\subsubsection{VirtualBox Remote Display Protocol}
+É um protocolo de comunicação para visualização remota de interfaces, ele é
+retrocompatível com o RDP da Microsoft. Este protocolo funciona sobre o protocolo TCP
+e por padrão na porta 3389. Através deste protocolo pode-se ter acesso a Desktops
+virtualizados através da rede, permitindo que vários usuários possam compartilhar a
+mesma tela ou acessar telas diferentes da mesmas máquina virtual.
+
+\subsubsection{Teletransporte}
+O VirtualBox tem uma ferramenta para a realização de transferência de máquinas virtuais,
+através desta ferramente é possível que uma máquina virtual possa ser transferida de um
+computador para outro através da rede.
+
+\subsubsection{VBoxManage}
+É um programa para a realização de controle de máquinas virtuais através da linha de
+comando, com isto é possível construir scripts que realizam a chamada deste programa afim
+de automatizar processos de construção, clonagem e quaisquer outras alterações em máquinas
 
 \section{Proposta de Implementação}
 A implementação consistirá de uma API REST HTTP para criação, escalonamento,
