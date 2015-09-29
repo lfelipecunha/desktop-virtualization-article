@@ -55,7 +55,7 @@ aplicações, geralmente apresentadas por meio de uma interface gráfica e
 organizadas em forma de janelas. Há uma série de benefícios inerentes a esse
 desacoplamento, como por exemplo a diminuição do tempo ocioso dos componentes
 físicos, significando um melhor aproveitamento destes e economia de recursos.
-maior tolerância a falhas de componentes físicos, dado que 
+maior tolerância a falhas de componentes físicos, dado que
 
 Pode-se definir o conceito como soluções computacionais que permitem a
 execução de vários sistemas operacionais e seus respectivos softwares a partir de uma
@@ -257,6 +257,14 @@ software para os principais sistemas operacionais do mercado, como Windows, OS X
 distribuições Linux. A versão mais importante do VirtualBox tem código-fonte aberto e
 é gratuita, mas a Oracle disponibiliza edições para uso corporativo que exigem
 pagamento de licenças.
+
+\section{Proposta de Implementação}
+A implementação consistirá de uma API REST HTTP para criação, escalonamento,
+clonagem, compartiilhamento e destruição de máquinas virtuais, utilizando a
+tecnologia do Oracle VM VirtualBox e o protocolo de comunicação VRDP. O
+objetivo é permitir que múltiplos ambientes de desktop sejam gerenciados e
+escalonados sem a necessidade de preocupação com o hardware usado por parte do
+cliente.
 
 \bibliographystyle{sbc}
 \bibliography{desktop-virtualization}
